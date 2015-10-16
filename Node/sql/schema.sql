@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `games` (
   `game_id` int(11) NOT NULL primary key AUTO_INCREMENT,
     `game_name` varchar(100) NOT NULL,
-    `picture` varchar(100) NOT NULL
+    `picture` varchar(100)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 CREATE TABLE IF NOT EXISTS `consoles` (
