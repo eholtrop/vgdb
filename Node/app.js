@@ -21,7 +21,7 @@ var games         = require('./routes/api/games');
 var consoles      = require('./routes/api/consoles');
 var regions       = require('./routes/api/regions');
 var release_dates = require('./routes/api/release_dates');
-var wikipedia     = require('./routes/wikipediaParse/wikipedia');
+var wikipedia     = require('./routes/wikipediaParse/metacritic');
 
 
 
@@ -83,7 +83,7 @@ app.use('/profile', users);
 app.use('/logout', users);
 app.use('/', games);
 app.use('/', release_dates);
-app.use('/consoles', consoles);
+app.use('/', consoles);
 app.use('/regions', regions);
 app.use('/wikipediaParse', wikipedia);
 
