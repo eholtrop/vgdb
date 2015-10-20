@@ -21,26 +21,27 @@ router.get('/api/releaseDates', function(req, res, next) {
 });
 
 router.get('/api/releaseDates/:year', function(req, res, next) {
-    Model.ReleaseDate.where({release_year: req.params.year}).fetchAll().then(function(model) {
-       console.log(model);
+    knex('dates').where('release_year', req.params.yesr).then(function(response) {
+        console.log(model);
         res.json(model.toJSON());
     });
 });
 
 //string query
 router.get('/api/releaseDates/:year/:month', function(req, res, next) {
-    Model.ReleaseDate.where({release_year: req.params.year, release_month: req.params.month}).fetchAll().then(function(model) {
+    knex('dates').where({ release_year: req.params.yesr, release_month: req.params.month }).then(function(response) {
         console.log(model);
         res.json(model.toJSON());
     });
 });
 
-//int query
-router.get('/api/releaseDates/:year/:quarter', function(req, res, next) {
-    Model.ReleaseDate.where({release_year: req.params.year, release_quarter: req.params.quarter}).fetchAll().then(function(model) {
+//string query
+router.get('/api/releaseDates/:year/:month/:day', function(req, res, next) {
+    knex('dates').where({ release_year: req.params.yesr, release_month: req.params.month, release_dat: req.params.day }).then(function(response) {
         console.log(model);
         res.json(model.toJSON());
     });
 });
+
 
 module.exports = router;
