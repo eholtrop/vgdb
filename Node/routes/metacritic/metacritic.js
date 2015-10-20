@@ -49,13 +49,13 @@ function SaveReleaseDate(game_name, console_name, new_date) {
     Model.Game.where({game_name: game_name}).fetch().then(function(game) {
         Model.Console.where({console_name: console_name}).fetch().then(function (gameConsole) {
             console.log(gameConsole["attributes"]);
-            Model.ReleaseDate.where({game_id: game["attributes"]['game_id'], console_id: gameConsole["attributes"]["console_id"]}).fetch({withRelated: ['game', 'console', 'date']}).then(function (releaseDate) {
+            Model.ReleaseDate.where({game_fk: game["attributes"]['game_id'], console_fk: gameConsole["attributes"]["console_id"]}).fetch({withRelated: ['game', 'console', 'date']}).then(function (releaseDate) {
                 GetDate(year, month, day, function(date) {
                     if(!releaseDate) {
                         new Model.ReleaseDate({
-                            console_id: gameConsole["attributes"]["console_id"],
-                            game_id: game["attributes"]["game_id"],
-                            date_id: date["date_id"]
+                            console_fk: gameConsole["attributes"]["console_id"],
+                            game_fk: game["attributes"]["game_id"],
+                            date_fk: date["date_id"]
                         }).save();
                     } else {
                         var rdate = releaseDate.toJSON();

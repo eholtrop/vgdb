@@ -36,12 +36,12 @@ CREATE TABLE IF NOT EXISTS `dates` (
 
 CREATE TABLE IF NOT EXISTS `release_dates` (
     `release_date_id` int(11) primary key  NOT NULL AUTO_INCREMENT,
-    `console_id` int(11) NOT NULL,
-    `date_id` int(11) NOT NULL,
-    `game_id` int(11) NOT NULL,
-    FOREIGN KEY (game_id) REFERENCES games(game_id),
-    FOREIGN KEY (date_id) REFERENCES dates(date_id),
-    FOREIGN KEY (console_id) REFERENCES consoles(console_id)
+    `console_fk` int(11) NOT NULL,
+    `date_fk` int(11) NOT NULL,
+    `game_fk` int(11) NOT NULL,
+    FOREIGN KEY (game_fk) REFERENCES games(game_id),
+    FOREIGN KEY (date_fk) REFERENCES dates(date_id),
+    FOREIGN KEY (console_fk) REFERENCES consoles(console_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 INSERT INTO `consoles` (`console_name`) VALUES
