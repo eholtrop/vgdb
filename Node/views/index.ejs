@@ -20,6 +20,20 @@
     <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
   </div>
 
+  <h1><%= title %></h1>
+  <ul>
+    <% for(var i=0; i<dates.length; i++) { %>
+    <li>
+      <%= dates[i].date.release_day + "/" + dates[i].date.release_month + "/" + dates[i].date.release_year %>
+    </li>
+      <ul>
+        <li>
+          <%= dates[i].game.game_name %>
+        </li>
+      </ul>
+    <% } %>
+  </ul>
+
 </div>
 </body>
 </html>

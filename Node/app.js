@@ -21,7 +21,7 @@ var games         = require('./routes/api/games');
 var consoles      = require('./routes/api/consoles');
 var regions       = require('./routes/api/regions');
 var release_dates = require('./routes/api/release_dates');
-var wikipedia     = require('./routes/wikipediaParse/metacritic');
+var wikipedia     = require('./routes/metacritic/metacritic');
 
 
 
@@ -85,7 +85,7 @@ app.use('/', games);
 app.use('/', release_dates);
 app.use('/', consoles);
 app.use('/regions', regions);
-app.use('/wikipediaParse', wikipedia);
+app.use('/metacritic', wikipedia);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
